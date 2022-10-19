@@ -1,0 +1,374 @@
+<html>
+<!-- Styles -->
+<style>
+  #chartdiv {
+    width: 100%;
+    max-width: 100%;
+    height: 560px;
+  }
+  </style>
+  
+  <!-- Resources -->
+  <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/hierarchy.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+  
+  <!-- Chart code -->
+  <script>
+   am5.ready(function() {
+
+// Create root element
+// https://www.amcharts.com/docs/v5/getting-started/#Root_element
+var root = am5.Root.new("chartdiv");
+
+// Set themes
+// https://www.amcharts.com/docs/v5/concepts/themes/
+root.setThemes([
+    am5themes_Animated.new(root)
+]);
+
+var data = {
+    value: 0,
+    children: [{
+            name: "Teaching",
+            children: [{
+                    name: "Software Engineering",
+
+                    children: [{
+                            name: "Agile SE",
+                            value: 1
+                        },
+                        {
+                            name: "OpenSource SE",
+                            value: 1
+
+                        },
+                        {
+                            name: "Software Design",
+
+                            children: [{
+                                    name: "Design Patterns",
+                                    value: 1
+                                },
+                                {
+                                    name: 'The philosophy of Software Design',
+                                    value: 1
+                                },
+                                {
+                                    name: "Solid Principles",
+                                    value: 1
+                                },
+                                {
+                                    name: "Agile Modelling",
+                                    value: 1
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    name: `Human Computer Interaction`,
+                    children: [{
+                            name: `Usability Engineering`,
+                            children: [{
+                                    name: "The Spiral Model",
+                                    value: 1
+                                },
+                                {
+                                    name: "Task Analysis",
+                                    value: 1
+                                },
+                                {
+                                    name: "Engagment Analytics",
+                                    value: 1
+                                },
+                                {
+                                    name: "A/B Testing",
+                                    value: 1
+                                }
+                            ]
+                        },
+                        {
+                            name: "Interactive Systems",
+                            value: 1
+
+                        },
+                        {
+                            name: "Mobile HCI",
+
+                            children: [{
+                                    name: `Native Android Dev-Java`,
+                                    value: 1
+                                },
+                                {
+                                    name: `Hybrid Mobile Dev`,
+                                    value: 1
+                                },
+                                {
+                                    name: `Performance Optimization`,
+                                    value: 1
+                                }
+
+                            ]
+                        },
+                        {
+                            name: `Mobile Augmented Reality`,
+                            value: 1
+
+                        }
+                    ]
+                },
+                {
+                    name: "Data & systems",
+
+                    children: [{
+                            name: "Relational DBs",
+                            value: 1
+
+                        },
+                        {
+                            name: "Advanced DBs",
+                            value: 1
+
+                        },
+                        {
+                            name: "BigData Systems",
+                            value: 1
+
+                        },
+                        {
+                            name: "Data Mining",
+                            value: 1
+
+                        },
+                        {
+                            name: "Statistics",
+                            value: 1
+                        }
+                    ]
+                }
+            ]
+
+        },
+
+
+        {
+            name: "Research",
+
+            children: [{
+                    name: "HCI",
+
+                    children: [
+
+                        {
+                            name: `Mobile Augmented Reality`,
+                            children: [{
+                                    name: `Markless AR browsers`,
+                                    value: 1
+                                },
+                                {
+                                    name: `Indoor localization for indoor browsers`,
+                                    value: 1
+                                },
+                                {
+                                    name: `Usability live testing`,
+                                    value: 1
+                                }
+
+                            ]
+                        },
+                        {
+                            name: `Health Informatics`,
+                            children: [{
+                                    name: `Dialog Generation using RNNs`,
+                                    value: 1
+                                },
+                                {
+                                    name: `Natural language Understanding`,
+                                    value: 1
+                                },
+                                {
+                                    name: `Mobile-based sentiment & pain detection`,
+                                    value: 1
+                                }
+
+                            ]
+                        },
+                        {
+                            name: "Adaptive Interfaces",
+
+                            children: [{
+                                    name: `Probablistic recommendations`,
+                                    value: 1
+                                },
+                                {
+                                    name: `Topical profiling and usage logs`,
+                                    value: 1
+                                }
+
+                            ]
+                        }
+
+                    ]
+                },
+
+                {
+                    name: "SE",
+
+                    children: [
+
+
+                        {
+                            name: "Performance Analytics",
+                            value: 1
+                        },
+                        {
+                            name: `Code Review Automation`,
+                            value: 1
+                        }
+                    ]
+                },
+                {
+                    name: "Education",
+
+                    children: [
+
+                        {
+                            name: `Problem Based Learning`,
+                            value: 1
+                        },
+                        {
+                            name: "Pedagogical Agility",
+                            value: 1
+                        },
+                        {
+                            name: `Responsive Learning Design`,
+                            value: 1
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            name: "Industry",
+            //value:100,
+            children: [{
+                    name: "Eng. Leadership", // leading engineers on a large scale
+                    children: [{
+                            name: "SE Quality Metrics",
+                            value: 1
+                        },
+                        {
+                            name: "Engineers' Performance Metrics",
+                            value: 1
+                        }
+                    ]
+
+                },
+                {
+                    name: "Tech-Startups", // Design sprints, mentorship (bootup)
+                    children: [{
+                            name: "Design Sprints",
+                            value: 1
+                        },
+                        {
+                            name: `Mentorship `,
+                            value: 1
+                        },
+                        {
+                            name: `Usability Research `,
+                            value: 1
+                        }
+                    ]
+                },
+                {
+                    name: `Research & Development (Nokia)`,
+                    children: [{
+                            name: "Wearable Computing ",
+                            value: 1
+                        },
+                        {
+                            name: `High Accuracy Indoor Positioning `,
+                            value: 1
+                        }
+                    ]
+                }
+
+            ]
+        },
+        {
+            name: "Community",
+            //value:100,
+            children: [{
+                    name: "Opensource in the Arab Region",
+                    value: 1
+                },
+                {
+                    name: "CS Unplugged",
+                    value: 1
+
+                },
+                {
+                    name: "Tech4Teachers",
+                    value: 1
+
+                }
+
+            ]
+        }
+    ]
+};
+
+
+
+// Create wrapper container
+var container = root.container.children.push(am5.Container.new(root, {
+    width: am5.percent(100),
+    height: am5.percent(100),
+    layout: root.verticalLayout
+}));
+
+
+
+// Create series
+// https://www.amcharts.com/docs/v5/charts/hierarchy/#Adding
+var series = container.children.push(am5hierarchy.ForceDirected.new(root, {
+    singleBranchOnly: false,
+    downDepth: 1,
+    topDepth: 1,
+    initialDepth: 3,
+    valueField: "value",
+    categoryField: "name",
+    childDataField: "children",
+    idField: "name",
+    linkWithField: "linkWith",
+    manyBodyStrength: -8,
+    centerStrength: 0.4,
+    maxRadius: am5.percent(10)
+}));
+
+
+
+series.get("colors").setAll({
+    step: 4
+});
+
+
+
+series.links.template.set("strength", 0.8);
+
+series.data.setAll([data]);
+
+series.set("selectedDataItem", series.dataItems[0]);
+
+series.nodes.template.set("tooltipHTML", "{name}");
+
+// Make stuff animate on load
+series.appear(1000, 500);
+
+}); // end am5.ready()
+  </script>
+  
+  <!-- HTML -->
+  <div id="chartdiv"></div>
+  </html>
