@@ -321,13 +321,19 @@ var data = {
 
 
 
-// Create wrapper container
-var container = root.container.children.push(am5.Container.new(root, {
-    width: am5.percent(100),
-    height: am5.percent(100),
-    layout: root.verticalLayout
-}));
 
+var zoomableContainer = root.container.children.push(
+  am5.ZoomableContainer.new(root, {
+    width: am5.p100,
+    height: am5.p100,
+    wheelable: true,
+    pinchZoom: true
+  })
+);
+
+var zoomTools = zoomableContainer.children.push(am5.ZoomTools.new(root, {
+  target: zoomableContainer
+}));
 
 
 // Create series
