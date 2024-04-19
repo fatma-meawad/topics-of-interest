@@ -338,7 +338,7 @@ var zoomTools = zoomableContainer.children.push(am5.ZoomTools.new(root, {
 
 // Create series
 // https://www.amcharts.com/docs/v5/charts/hierarchy/#Adding
-var series = zoomableContainer.children.push(am5hierarchy.ForceDirected.new(root, {
+var series = zoomableContainer.contents.children.push(am5hierarchy.ForceDirected.new(root, {
     maskContent:false, 
     singleBranchOnly: false,
     downDepth: 1,
